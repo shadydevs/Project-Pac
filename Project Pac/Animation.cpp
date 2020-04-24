@@ -1,5 +1,5 @@
 #include "animation.h"
-
+//Comment
 Animation::Animation(Texture* texture, Vector2u imageCount, float switchTime) 
 {
 	this->imageCount = imageCount;
