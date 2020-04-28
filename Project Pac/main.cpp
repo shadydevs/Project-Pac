@@ -37,8 +37,7 @@ using namespace std;
 
 int main()
 {
-    //i'm testing the branches 
-    sf::RenderWindow window(sf::VideoMode(600, 750), "PACMAN", Style::Close);
+    RenderWindow window(VideoMode(600, 750), "PACMAN", Style::Close);
     window.setFramerateLimit(60);
 
     RectangleShape pac(Vector2f(25.0f, 25.5f));
