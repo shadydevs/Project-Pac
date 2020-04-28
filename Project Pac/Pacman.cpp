@@ -54,28 +54,28 @@
 //{
 //	switch (direction)
 //		case 'L'
-//		if (array[posI][posJ - 1] != -1)
+//		while (array[posI][posJ - 1] != -1)
 //		{
 //			pacman.move(-100, 0);
 //			posJ--;
 //		}
 //	break;
 //	case 'R'
-//		if (array[posI][posJ + 1] != -1)
+//		while (array[posI][posJ + 1] != -1)
 //		{
 //			pacman.move(100, 0);
 //			posJ++;
 //		}
 //	break;
 //	case 'U'
-//		if (array[posI - 1][posJ] != -1)
+//		while (array[posI - 1][posJ] != -1)
 //		{
 //			pacman.move(0, -100);
 //			posI--;
 //		}
 //	break;
 //	case 'D'
-//		if (array[posI + 1][posJ] != -1)
+//		while (array[posI + 1][posJ] != -1)
 //		{
 //			pacman.move(0, 100);
 //			posI++;
