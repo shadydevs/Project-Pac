@@ -37,6 +37,7 @@ using namespace std;
 
 int main()
 {
+    //i'm testing the branches 
     sf::RenderWindow window(sf::VideoMode(600, 750), "PACMAN", Style::Close);
     window.setFramerateLimit(60);
 
