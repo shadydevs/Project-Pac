@@ -8,8 +8,6 @@
 //class ghost: public Character
 //{
 //private:
-//    int posx;
-//    int posy;
 //    Sprite blinky, inky, clyde, forth;
 //    Sprite ghosts[4] = { blinky, inky, clyde, forth }
 //    Texture blinkyT, inkyT, clydeT, forthT;

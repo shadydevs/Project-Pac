@@ -3,7 +3,6 @@
 //class Pacman : public Character
 //{
 //Private:
-//	int posI, posJ;
 //	Circleshape pacman;
 //	int score, lives;
 //Public:
