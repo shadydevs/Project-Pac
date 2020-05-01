@@ -18,6 +18,6 @@ public:
 	int getposJ();
 	void setposJ(int j);
 
-	//virtual void eat();		//for eating pellets/ghosts/pacman (overriding)
+	//virtual void eat();			//for eating pellets/ghosts/pacman (overriding)
 };
 
