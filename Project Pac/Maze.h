@@ -20,7 +20,7 @@ private:
 	Texture playerT;
 	Texture tileT;
 public:
-	Maze(string, string, string, sprite );
+	Maze(string, string, string, Sprite player);
 
 	Sprite mazeSprites[sizey][sizex];
 };
