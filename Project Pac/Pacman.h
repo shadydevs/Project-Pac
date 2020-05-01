@@ -8,10 +8,7 @@
 //Public:
 //	Pacman();
 //	int eatenGhosts, eatenPellets;
-//	int getposI();
-//	void setposI(int i);
-//	int getposJ();
-//	void setposJ(int j);
+//	
 //	int getScore();
 //	void updateScore();
 //	int getLives();

@@ -7,22 +7,7 @@
 //using namespace sf;
 //using namespace std;
 //
-//int Pacman::getposI()
-//{
-//	return posI;
-//}
-//void Pacman::setposI(int i)
-//{
-//	posI = i;
-//}
-//int Pacman::getposJ()
-//{
-//	return posJ;
-//}
-//void Pacman::setposJ(int j)
-//{
-//	posJ = j;
-//}
+
 //int Pacman::getScore()
 //{
 //	return score;
