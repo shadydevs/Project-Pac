@@ -1,8 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <fstream>
+#include "Maze.h"
+#include "Pacman.h"
 #include "Animation.h"
-//#include "Pacman.h"
+#include "Character.h"
 using namespace sf;
 using namespace std;
 
@@ -59,54 +61,7 @@ int main()
     //cout << "enter player name: ";
     //cin >> player.name;
 
-
-    
-    //reading the map from file
-    ifstream readMaze("data/maze2.txt");
-    int maze[21][19];
-    for (int i = 0; i < 21; i++)
-    {
-        for (int j = 0; j < 19; j++) {
-            
-            readMaze >> maze[i][j];
-        }
-    }
-
-    //diplaying map
-
-    RectangleShape tile[21][19];
-    CircleShape pellet[21][19];
-    Texture tileT;
-    tileT.loadFromFile("data/tile.png");
-
-    float xposBoard = 0.0, yposBoard = 90.0;
-    float xposDot = 0.0, yposDot = 0.0;
-
-    for (int i = 0; i < 21; i++)
-    {
-        for (int j = 0; j < 19; j++)
-        {
-            tile[i][j].setPosition(xposBoard, yposBoard);
-            tile[i][j].setSize(Vector2f(31, 28));
-            pellet[i][j].setPosition(xposDot, yposDot);
-            pellet[i][j].setRadius(3);
-
-            if (maze[i][j] == -1)
-            {
-                tile[i][j].setTexture(&tileT);
-            }
-            else if (maze[i][j] == 1)
-            {
-                pellet[i][j].setFillColor(Color(220, 171, 187));
-            }
-            xposBoard += 32;
-            xposDot = xposBoard + 15;
-        }
-
-        yposBoard += 29;
-        yposDot = yposBoard + 14.3;
-        xposBoard = 0, xposDot = 0;
-    }
+    Maze maze("data/maze2.txt", "data/tile.png", "data/pellet.png", pac);
 
     //pac.setPosition();
 
