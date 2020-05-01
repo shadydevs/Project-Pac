@@ -1,8 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <fstream>
+#include "Maze.h"
+#include "Pacman.h"
 #include "Animation.h"
-//#include "Pacman.h"
+#include "Character.h"
 using namespace sf;
 using namespace std;
 
