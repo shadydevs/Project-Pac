@@ -23,6 +23,8 @@ Maze::Maze(string _BMF, string _TF, string _PF) {
 			else if (bitmap[i][j] > 0)
 			{
 				if (bitmap[i][j] == 5) {
+					playeri = i;
+					playerj = j;
 
 				}
 				mazeSprites[i][j].setTexture(pelletT);
