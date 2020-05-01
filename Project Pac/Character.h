@@ -13,6 +13,6 @@ protected:
 public:
 	Character();
 	bool detectnext();			//for detecting walls
-	//virtual void eat();			//for eating pellets/ghosts/pacman (overriding)
+	//virtual void eat();		//for eating pellets/ghosts/pacman (overriding)
 };
 

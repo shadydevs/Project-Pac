@@ -1,8 +1,11 @@
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <fstream>
+#include "Character.h"
+#include "Pacman.h"
+#include "ghost.cpp"
 #include "Animation.h"
-//#include "Pacman.h"
+#include "Maze.h"
+#include <SFML/Graphics.hpp>
 using namespace sf;
 using namespace std;
 
@@ -39,6 +42,8 @@ int main()
 {
     RenderWindow window(VideoMode(600, 750), "PACMAN", Style::Close);
     window.setFramerateLimit(60);
+
+    Pacman Pac;
 
     RectangleShape pac(Vector2f(25.0f, 25.5f));
     pac.setPosition(292.0f, 527.0f);

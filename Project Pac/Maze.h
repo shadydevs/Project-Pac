@@ -3,6 +3,7 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+
 using namespace std;
 using namespace sf;
 
@@ -13,13 +14,13 @@ class Maze
 private:
 	int bitmap[sizey][sizex];
 	ifstream bitmapFile;
-	Sprite player;
+	Pacman& pac;
 	int playeri, playerj;
 	Texture pelletT;
 	Texture playerT;
 	Texture tileT;
 public:
-	Maze(string, string, string);
+	Maze(string, string, string, Pacman _pac);
 
 	Sprite mazeSprites[sizey][sizex];
 };
