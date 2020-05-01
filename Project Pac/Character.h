@@ -13,6 +13,10 @@ protected:
 public:
 	Character();
 	bool detectnext();			//for detecting walls
+	int getposI();
+	void setposI(int i);
+	int getposJ();
+	void setposJ(int j);
 	//virtual void eat();			//for eating pellets/ghosts/pacman (overriding)
 };
 
