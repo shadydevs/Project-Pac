@@ -154,12 +154,14 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="ghost.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Maze.cpp" />
     <ClCompile Include="Pacman.cpp" />
     <ClCompile Include="Pellet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="Maze.h" />
     <ClInclude Include="Pacman.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
