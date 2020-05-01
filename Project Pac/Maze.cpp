@@ -20,9 +20,10 @@ Maze::Maze(string _BMF, string _TF, string _PF, Pacman& _pac) : pac(_pac) {		//B
 			}
 			else if (bitmap[i][j] > 0)
 			{
-				if (bitmap[i][j] == 5) {
+				if (bitmap[i][j] == 5) {		//5 indicates position of pacman
 					pac.setposI(i);
 					pac.setposJ(j);
+					pac.getPacmanSprite().setPosition(600, 400);
 				}
 				mazeSprites[i][j].setTexture(pelletT);
 				mazeSprites[i][j].scale(0.75f, 0.75f);			//final size of pellet is 15p
