@@ -1,9 +1,7 @@
-#include "maze.h"
+#include  "Maze.h"
 //x 19, y 21
-Maze::Maze(string _BMF, string _TF, string _PF) {
+Maze::Maze(string _BMF, string _TF, string _PF, Pacman& _pac) : pac(_pac) {		//BMF bitmapfile, TF texture file, PF pellet file.
 
-	//playerT.loadFromFile("data/pacman-left");
-	//player.setTexture(playerT);
 	tileT.loadFromFile(_TF);
 	pelletT.loadFromFile(_PF);
 
@@ -17,15 +15,14 @@ Maze::Maze(string _BMF, string _TF, string _PF) {
 			{
 				mazeSprites[i][j].setTexture(tileT);
 				mazeSprites[i][j].scale(0.75f, 0.75f);			//final size of tile is	37.5p
-				mazeSprites[i][j].setPosition(j * 37.5, i * 37.5 + (37.5f * 2.0f));
+				mazeSprites[i][j].setPosition(j * 37.5f, i * 37.5f + (37.5f * 2.0f));
 				//							      (size of tile)  (vertical offset from top of window by two tiles)
 			}
 			else if (bitmap[i][j] > 0)
 			{
 				if (bitmap[i][j] == 5) {
-					playeri = i;
-					playerj = j;
-
+					pac.setposI(i);
+					pac.setposJ(j);
 				}
 				mazeSprites[i][j].setTexture(pelletT);
 				mazeSprites[i][j].scale(0.75f, 0.75f);			//final size of pellet is 15p

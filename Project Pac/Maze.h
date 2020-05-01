@@ -1,5 +1,6 @@
 #pragma once
 #include "SFML/Graphics.hpp"
+#include "Pacman.h"
 #include<iostream>
 #include<fstream>
 #include<string>
@@ -14,13 +15,11 @@ class Maze
 private:
 	int bitmap[sizey][sizex];
 	ifstream bitmapFile;
-	Sprite player;
-	int playeri, playerj;
+	Pacman& pac;
 	Texture pelletT;
-	Texture playerT;
 	Texture tileT;
 public:
-	Maze(string, string, string, Sprite player);
+	Maze(string, string, string, Pacman& _pac);
 
 	Sprite mazeSprites[sizey][sizex];
 };
