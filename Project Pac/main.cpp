@@ -5,37 +5,39 @@
 #include "Pacman.h"
 #include "Animation.h"
 #include "Character.h"
+
 using namespace sf;
 using namespace std;
 
-//int collide(pacman pac, ghost ghostsArr[]) {
-//    for (int i = 0; i < 4; i++)
-//    {
-//        if (intersects(pac.getGlobalBounds(), ghostsArr[i].getGlobalBounds)) {
-//            if (pac.superModeOn()) {
-//                return 1;
-//            }
-//            else
-//            {
-//                return 2;
-//            }
-//        }
-//    }
-//
-//    return 0;
-//}
 
-//int collide(pacman pac, pellet pels[]) {                // think about pellets and stuff
-//    for (int i = 0; i < 4; i++)
-//    {
-//        if (intersects(pac.getGlobalBounds(), pels[i].getGlobalBounds))
-//        {
-//
-//        }
-//    }
-//
-//    return 0;
-//}
+int collide(Pacman pac, ghost ghostsArr[]) {
+    for (int i = 0; i < 4; i++)
+    {
+        if (intersects(pac.getGlobalBounds(), ghostsArr[i].getGlobalBounds)) {
+            if (pac.superModeOn()) {
+                return 1;
+            }
+            else
+            {
+                return 2;
+            }
+        }
+    }
+
+    return 0;
+}
+
+int collide(pacman pac, pellet pels[]) {                // think about pellets and stuff
+    for (int i = 0; i < 4; i++)
+    {
+        if (intersects(pac.getGlobalBounds(), pels[i].getGlobalBounds))
+        {
+
+        }
+    }
+
+    return 0;
+}
 
 int main()
 {
@@ -48,18 +50,18 @@ int main()
     //float deltaTime = 0.0f;
     //Clock clock;
 
-    //ghost ghostsArr[4];
+    ghost ghostsArr[4];
 
-    //Player player;
-    //ofstream playersInfo;
+    Player player;
+    ofstream playersInfo;
 
-    //cout << "enter player name: ";
-    //cin >> player.name;
+    cout << "enter player name: ";
+    cin >> player.name;
 
     Pacman pac;
     Maze maze("data/maze2.txt", "data/tile.png", "data/pellet.png", pac);
 
-    //pac.setPosition();
+    pac.setPosition();
 
 
     while (window.isOpen())
@@ -75,27 +77,27 @@ int main()
 
         }
 
-        //pac.move();
+        pac.move();
 
 
 
-        //if (collide(pac, ghostsArr) == 1) {
-        //    pac.eat(ghost);
-        //}
-        //else if (collide(pac, ghostsArr) == 2) {
-        //    ghost.eat(pac);
-        //}
+        if (collide(pac, ghostsArr) == 1) {
+            pac.eat(ghost);
+        }
+        else if (collide(pac, ghostsArr) == 2) {
+            ghost.eat(pac);
+        }
 
-        //if (pac.isDead()) {
-        //    /*
-        //    end of game code {
-        //        update score leaderboard
-        //        cout gameover
-        //        save to file
-        //        ask if want to replay
-        //    }
-        //    */
-        //}
+        if (pac.isDead()) {
+            /*
+            end of game code {
+                update score leaderboard
+                cout gameover
+                save to file
+                ask if want to replay
+            }
+            */
+        }
 
         //animation.Update(row, deltaTime);
         //pac.setTextureRect(animation.uvRect);

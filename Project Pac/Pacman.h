@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include <fstream>
 #include <SFML/Audio.hpp>
@@ -21,6 +20,7 @@ public:
 	void updateScore();
 	int getLives();
 	void updateLives();
+
 	Sprite getPacmanSprite();
 	//void movePacman(char direction, int array[][]);
 	//void eat(ghost g);
