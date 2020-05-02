@@ -6,6 +6,10 @@ Pacman::Pacman() {
 	//pacman.setPosition(292.0f, 527.0f);
 }
 
+Sprite Pacman::getPacmanSprite()
+{
+	return pacman;
+}
 //int Pacman::getScore()
 //{
 //	return score;
@@ -29,10 +33,6 @@ Pacman::Pacman() {
 //	if (eatenPellets == )
 //		//you won!
 //}
-Sprite Pacman::getPacmanSprite()
-{
-	return pacman;
-}
 //void Pacman::movePacman(char direction, int array[][])
 //{
 //	switch (direction)
