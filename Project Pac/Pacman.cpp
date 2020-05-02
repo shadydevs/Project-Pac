@@ -1,12 +1,10 @@
-//#include <iostream>
-//#include <fstream>
-//#include <SFML/Audio.hpp>
-//#include <SFML/Graphics.hpp>
-//#include "Pacman.h"
-//#include "Pellet.cpp"
-//using namespace sf;
-//using namespace std;
-//
+#include "Pacman.h"
+
+Pacman::Pacman() {
+	t.loadFromFile("data/pacman-left.png");
+	pacman.setTexture(t);
+	//pacman.setPosition(292.0f, 527.0f);
+}
 
 //int Pacman::getScore()
 //{
@@ -31,10 +29,10 @@
 //	if (eatenPellets == )
 //		//you won!
 //}
-//Circleshape Pacman::getPacmanSprite()
-//{
-//	return pacman;
-//}
+Sprite Pacman::getPacmanSprite()
+{
+	return pacman;
+}
 //void Pacman::movePacman(char direction, int array[][])
 //{
 //	switch (direction)

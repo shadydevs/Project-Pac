@@ -23,12 +23,17 @@ Maze::Maze(string _BMF, string _TF, string _PF, Pacman& _pac) : pac(_pac) {		//B
 				if (bitmap[i][j] == 5) {		//5 indicates position of pacman
 					pac.setposI(i);
 					pac.setposJ(j);
-					pac.getPacmanSprite().setPosition(600, 400);
+					//pac.getPacmanSprite().setPosition(100, 0);
+					mazeSprites[i][j].setTexture(*pac.getPacmanSprite().getTexture());
+					mazeSprites[i][j].setPosition(j * 37.5f + 7, i * 37.5f + 7 + (37.5f * 2.0f));
 				}
-				mazeSprites[i][j].setTexture(pelletT);
-				mazeSprites[i][j].scale(0.75f, 0.75f);			//final size of pellet is 15p
-				mazeSprites[i][j].setPosition(j * 37.5 + (18.75f - 7.5f), i * 37.5 + (18.75f - 7.5) + (37.5f * 2.0f));
-				//						(size of tile)|(offset of half tile then adjusting half a pellet to center it)|(vertical offset from top of window by two tiles)
+				else {
+
+					mazeSprites[i][j].setTexture(pelletT);
+					mazeSprites[i][j].scale(0.75f, 0.75f);			//final size of pellet is 15p
+					mazeSprites[i][j].setPosition(j * 37.5 + (18.75f - 7.5f), i * 37.5 + (18.75f - 7.5) + (37.5f * 2.0f));
+					//						(size of tile)|(offset of half tile then adjusting half a pellet to center it)|(vertical offset from top of window by two tiles)
+				}
 
 			}
 		}

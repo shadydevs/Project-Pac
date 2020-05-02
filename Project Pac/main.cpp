@@ -39,19 +39,14 @@ using namespace std;
 
 int main()
 {
-    RenderWindow window(VideoMode(600, 750), "PACMAN", Style::Close);
+    RenderWindow window(VideoMode(712.5, 950), "PACMAN", Style::Close);
     window.setFramerateLimit(60);
 
-    RectangleShape pac(Vector2f(25.0f, 25.5f));
-    pac.setPosition(292.0f, 527.0f);
-    Texture Tpac;
-    Tpac.loadFromFile("data/pacman.png");
-    pac.setTexture(&Tpac);
     
-    Animation animation(&Tpac, Vector2u(3, 4), 0.3f);
-    int row = 0;
-    float deltaTime = 0.0f;
-    Clock clock;
+    //Animation animation(&Tpac, Vector2u(3, 4), 0.3f);
+    //int row = 0;
+    //float deltaTime = 0.0f;
+    //Clock clock;
 
     //ghost ghostsArr[4];
 
@@ -61,6 +56,7 @@ int main()
     //cout << "enter player name: ";
     //cin >> player.name;
 
+    Pacman pac;
     Maze maze("data/maze2.txt", "data/tile.png", "data/pellet.png", pac);
 
     //pac.setPosition();
@@ -68,7 +64,7 @@ int main()
 
     while (window.isOpen())
     {
-        deltaTime = clock.restart().asSeconds();
+        //deltaTime = clock.restart().asSeconds();
 
         Event evnt;
         while (window.pollEvent(evnt))
@@ -76,10 +72,6 @@ int main()
             if (evnt.type == Event::Closed)
                 window.close();
 
-            if (Keyboard::isKeyPressed(Keyboard::Space))
-            {
-                cout << pac.getPosition().x << endl << pac.getPosition().y << endl << "----------" << endl;
-            }
 
         }
 
@@ -105,25 +97,19 @@ int main()
         //    */
         //}
 
-        animation.Update(row, deltaTime);
-        pac.setTextureRect(animation.uvRect);
+        //animation.Update(row, deltaTime);
+        //pac.setTextureRect(animation.uvRect);
 
         window.clear();
-        window.draw(pac);
-        for (int i = 0; i < 19; i++)
+        //window.draw(pac.getPacmanSprite());
+        for (int i = 0; i < sizey; i++)
         {
-            for (int j = 0; j < 21; j++)
+            for (int j = 0; j < sizex; j++)
             {
-                if (maze[i][j] == -1)
-                {
-                    window.draw(tile[i][j]);
-                }
-                if (maze[i][j] == 1)
-                {
-                    window.draw(pellet[i][j]);
-                }
+                window.draw(maze.mazeSprites[i][j]);
             }
         }
+
         window.display();
     }
 
