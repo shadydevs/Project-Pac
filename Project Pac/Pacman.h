@@ -1,11 +1,18 @@
-#pragma once
+#include <iostream>
+#include <fstream>
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
+#include "Pellet.cpp"
 #include "Character.h"
+using namespace sf;
+using namespace std;
+
 class Pacman : public Character
 {
-Private:
-	Circleshape pacman;
+private:
+	Sprite pacman;
 	int score, lives;
-Public:
+public:
 	Pacman();
 	int eatenGhosts, eatenPellets;
 	
@@ -13,8 +20,9 @@ Public:
 	void updateScore();
 	int getLives();
 	void updateLives();
-	Circleshape getPacmanSprite();
-	void movePacman(char direction, int array[][]);
-	void eat(ghost g);
-	void eat(pellet pell);
+
+	Sprite getPacmanSprite();
+	//void movePacman(char direction, int array[][]);
+	//void eat(ghost g);
+	//void eat(pellet pell);
 };

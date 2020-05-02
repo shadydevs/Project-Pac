@@ -1,9 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <fstream>
-#include "Animation.h"
+#include "Maze.h"
 #include "Pacman.h"
-#include "ghost.cpp"
+#include "Animation.h"
+#include "Character.h"
+
 using namespace sf;
 using namespace std;
 
@@ -39,19 +41,14 @@ int collide(pacman pac, pellet pels[]) {                // think about pellets a
 
 int main()
 {
-    RenderWindow window(VideoMode(600, 750), "PACMAN", Style::Close);
+    RenderWindow window(VideoMode(712.5, 950), "PACMAN", Style::Close);
     window.setFramerateLimit(60);
 
-    RectangleShape pac(Vector2f(25.0f, 25.5f));
-    pac.setPosition(292.0f, 527.0f);
-    Texture Tpac;
-    Tpac.loadFromFile("data/pacman.png");
-    pac.setTexture(&Tpac);
     
-    Animation animation(&Tpac, Vector2u(3, 4), 0.3f);
-    int row = 0;
-    float deltaTime = 0.0f;
-    Clock clock;
+    //Animation animation(&Tpac, Vector2u(3, 4), 0.3f);
+    //int row = 0;
+    //float deltaTime = 0.0f;
+    //Clock clock;
 
     ghost ghostsArr[4];
 
@@ -61,61 +58,15 @@ int main()
     cout << "enter player name: ";
     cin >> player.name;
 
-
-    
-    reading the map from file
-    ifstream readMaze("data/maze2.txt");
-    int maze[21][19];
-    for (int i = 0; i < 21; i++)
-    {
-        for (int j = 0; j < 19; j++) {
-            
-            readMaze >> maze[i][j];
-        }
-    }
-
-    diplaying map
-
-    RectangleShape tile[21][19];
-    CircleShape pellet[21][19];
-    Texture tileT;
-    tileT.loadFromFile("data/tile.png");
-
-    float xposBoard = 0.0, yposBoard = 90.0;
-    float xposDot = 0.0, yposDot = 0.0;
-
-    for (int i = 0; i < 21; i++)
-    {
-        for (int j = 0; j < 19; j++)
-        {
-            tile[i][j].setPosition(xposBoard, yposBoard);
-            tile[i][j].setSize(Vector2f(31, 28));
-            pellet[i][j].setPosition(xposDot, yposDot);
-            pellet[i][j].setRadius(3);
-
-            if (maze[i][j] == -1)
-            {
-                tile[i][j].setTexture(&tileT);
-            }
-            else if (maze[i][j] == 1)
-            {
-                pellet[i][j].setFillColor(Color(220, 171, 187));
-            }
-            xposBoard += 32;
-            xposDot = xposBoard + 15;
-        }
-
-        yposBoard += 29;
-        yposDot = yposBoard + 14.3;
-        xposBoard = 0, xposDot = 0;
-    }
+    Pacman pac;
+    Maze maze("data/maze2.txt", "data/tile.png", "data/pellet.png", pac);
 
     pac.setPosition();
 
 
     while (window.isOpen())
     {
-        deltaTime = clock.restart().asSeconds();
+        //deltaTime = clock.restart().asSeconds();
 
         Event evnt;
         while (window.pollEvent(evnt))
@@ -123,10 +74,6 @@ int main()
             if (evnt.type == Event::Closed)
                 window.close();
 
-            if (Keyboard::isKeyPressed(Keyboard::Space))
-            {
-                cout << pac.getPosition().x << endl << pac.getPosition().y << endl << "----------" << endl;
-            }
 
         }
 
@@ -152,25 +99,19 @@ int main()
             */
         }
 
-        animation.Update(row, deltaTime);
-        pac.setTextureRect(animation.uvRect);
+        //animation.Update(row, deltaTime);
+        //pac.setTextureRect(animation.uvRect);
 
         window.clear();
-        window.draw(pac);
-        for (int i = 0; i < 19; i++)
+        //window.draw(pac.getPacmanSprite());
+        for (int i = 0; i < sizey; i++)
         {
-            for (int j = 0; j < 21; j++)
+            for (int j = 0; j < sizex; j++)
             {
-                if (maze[i][j] == -1)
-                {
-                    window.draw(tile[i][j]);
-                }
-                if (maze[i][j] == 1)
-                {
-                    window.draw(pellet[i][j]);
-                }
+                window.draw(maze.mazeSprites[i][j]);
             }
         }
+
         window.display();
     }
 
